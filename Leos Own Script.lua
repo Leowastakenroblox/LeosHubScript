@@ -163,9 +163,9 @@ tele:AddButton({
     Name = "Tp to Trade World",
     Callback = function()
         if syn then
-            syn.queue_on_teleport("loadstring(game:HttpGet(('https://raw.githubusercontent.com/Zet-a/RobIox/main/MiningClickerSim.lua')))()")
+            syn.queue_on_teleport("loadstring(game:HttpGet(('https://raw.githubusercontent.com/Leowastakenroblox/Tappersimscript/main/Leos%20Own%20Script.lua')))()")
         else
-            queue_on_teleport("loadstring(game:HttpGet(('https://raw.githubusercontent.com/Zet-a/RobIox/main/MiningClickerSim.lua')))()")
+            queue_on_teleport("loadstring(game:HttpGet(('https://raw.githubusercontent.com/Leowastakenroblox/Tappersimscript/main/Leos%20Own%20Script.lua')))()")
         end
         game:GetService("TeleportService"):Teleport(10148920696, game:GetService("Players").LocalPlayer)
     end
@@ -175,9 +175,9 @@ if game.PlaceId == 10148920696 then
         Name = "Back to main game",
         Callback = function()
             if syn then
-                syn.queue_on_teleport("loadstring(game:HttpGet(('https://raw.githubusercontent.com/Zet-a/RobIox/main/MiningClickerSim.lua')))()")
+                syn.queue_on_teleport("loadstring(game:HttpGet(('https://raw.githubusercontent.com/Leowastakenroblox/Tappersimscript/main/Leos%20Own%20Script.lua')))()")
             else
-                queue_on_teleport("loadstring(game:HttpGet(('https://raw.githubusercontent.com/Zet-a/RobIox/main/MiningClickerSim.lua')))()")
+                queue_on_teleport("loadstring(game:HttpGet(('https://raw.githubusercontent.com/Leowastakenroblox/Tappersimscript/main/Leos%20Own%20Script.lua')))()")
             end
             game:GetService("TeleportService"):Teleport(8884334497, game:GetService("Players").LocalPlayer)
         end
@@ -187,9 +187,9 @@ tele:AddButton({
     Name = "Rejoin",
     Callback = function()
         if syn then
-            syn.queue_on_teleport("loadstring(game:HttpGet(('https://raw.githubusercontent.com/Zet-a/RobIox/main/MiningClickerSim.lua')))()")
+            syn.queue_on_teleport("loadstring(game:HttpGet(('https://raw.githubusercontent.com/Leowastakenroblox/Tappersimscript/main/Leos%20Own%20Script.lua')))()")
         else
-            queue_on_teleport("loadstring(game:HttpGet(('https://raw.githubusercontent.com/Zet-a/RobIox/main/MiningClickerSim.lua')))()")
+            queue_on_teleport("loadstring(game:HttpGet(('https://raw.githubusercontent.com/Leowastakenroblox/Tappersimscript/main/Leos%20Own%20Script.lua')))()")
         end
         game:GetService("TeleportService"):Teleport(game.PlaceId, game:GetService("Players").LocalPlayer)
     end
@@ -234,13 +234,13 @@ game:GetService("RunService").RenderStepped:Connect(function()
     local rebirths = lp:GetAttribute("Rebirths")
     local currentpick = lp:GetAttribute('equippedPick')
     if autorebirth == true then
-        if lp:GetAttribute("Coins") >= (5000 + math.floor((rebirths + 1) ^ 4.29205 * 5000)) then
+        if lp:GetAttribute("Taps") >= (5000 + math.floor((rebirths + 1) ^ 4.29205 * 5000)) then
             game:GetService("ReplicatedStorage").Remotes.Rebirth:FireServer()
         end
     end
     if autopick == true then
         for i,v in pairs(pm.picks) do
-            if v.Index == pm.picks[currentpick].Index + 1 and v.Cost <= lp:GetAttribute("Coins") then
+            if v.Index == pm.picks[currentpick].Index + 1 and v.Cost <= lp:GetAttribute("Taps") then
                 game:GetService("ReplicatedStorage").Remotes.BuyPickaxe:InvokeServer(i)
             end
         end
