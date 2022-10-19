@@ -1,3 +1,6 @@
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+local Window = OrionLib:MakeWindow({Name = "Leos Hub | [⌛🎃] Sword Simulator", HidePremium = false, IntroEnabled = true, IntroText = "Loading in Leos Hub...", SaveConfig = true, ConfigFolder = "LeoshubConfig"})
+
 _G.autoSword = true
 _G.autoBuy = true
 
