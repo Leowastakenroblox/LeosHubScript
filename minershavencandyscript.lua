@@ -1,6 +1,5 @@
 local Run = game:GetService("RunService")
 local Hub = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/kavo-Ui-Library/main/source.lua"))()
-local NPCs = game:GetService("Workspace").Map:FindFirstChild("TrickOrTreaters")
 
 local colors = {
     SchemeColor = Color3.fromRGB(50,50,50),
@@ -9,9 +8,8 @@ local colors = {
     TextColor = Color3.fromRGB(255, 150, 0),
     ElementColor = Color3.fromRGB(20, 20, 20)
 }
-local MainWindow = Hub.CreateLib("MH Candy Hub",colors)
+local MainWindow = Hub.CreateLib("Leos Hub | Miner's Haven",colors)
 local MainTab = MainWindow:NewTab("Auto Farm")
-local OtherTab = MainWindow:NewTab("Other Stuff")
 local UiTab = MainWindow:NewTab("UI Options")
 local AutoMine = false
 local AutoCollect = false
@@ -65,31 +63,6 @@ function GetItems()
 	end 
 end
 
-function CollectNpc()
-    local SavePos =  Player.Character.HumanoidRootPart.CFrame
-      for i,v in pairs(NPCs:GetChildren()) do
-       if v:FindFirstChild("Internal")  then 
-           local Prompt = v.Internal:FindFirstChildWhichIsA("ProximityPrompt")
-           if Prompt then 
-               Player.Character.HumanoidRootPart.CFrame = v.Internal.CFrame 
-               wait(0.3)
-               fireproximityprompt(Prompt, 50)
-               wait(0.1)
-            end
-        end
-      end
-    local Die = game:GetService("Workspace").Map.Fargield.Internal.ProximityPrompt
-    Player.Character.HumanoidRootPart.CFrame = Die.Parent.CFrame 
-    wait(0.3)
-    fireproximityprompt(Die, 50)
-    wait(0.1)
-    local Box = game:GetService("Workspace").Map.SpookMcDook.Internal.ProximityPrompt
-    Player.Character.HumanoidRootPart.CFrame = Box.Parent.CFrame 
-    wait(0.3)
-    fireproximityprompt(Box, 50)
-    wait(0.1)
-    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = SavePos
-end
 
 function Boost(Ore)
 	Ore.Anchored = true
@@ -142,15 +115,6 @@ local AutoUpgradeToggle = SectionMainTab:NewToggle("Auto Upgrade", "Upgardes the
   print(AutoCollect)
 end)
 
-local SectionOtherTab = OtherTab:NewSection("Npcs")
-
-if NPCs then 
-SectionOtherTab:NewButton("Auto collect Daily", "Collects all the rewards from the daily npcs", function()
-  CollectNpc()
-end)
-else
-  SectionOtherTab:NewLabel("Npcs not found(Not avaliable in solo)")
-end
 
 local ColorSelection = UiTab:NewSection("Ui Colors")
 
